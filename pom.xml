@@ -13,7 +13,32 @@
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>8</java.version>
+    <framework.version>1.1.0-SNAPSHOT</framework.version>
+    <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- framework dependencies start -->
+      <dependency>
+        <groupId>cn.chiayhon.dependencies</groupId>
+        <artifactId>framework-dependencies</artifactId>
+        <version>${framework.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- framework dependencies end -->
+      <!-- spring boot dependencies start-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- framework dependencies end -->
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <plugins>
