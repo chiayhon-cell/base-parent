@@ -45,6 +45,22 @@
   </dependencyManagement>
 
   <build>
+    <!-- 配置资源文件夹 -->
+    <resources>
+      <!-- 资源文件夹默认为：src/main/resources -->
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <!-- 对于src/main/resources下的application.properties和对应环境的properties，进行占位符替换 -->
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>application.properties</include>
+          <include>application-${profile.active}.properties</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <!-- 配置当前项目的jdk版本信息 -->
       <plugin>
@@ -129,5 +145,6 @@
       </repositories>
     </profile>
   </profiles>
+
 
 </project>
